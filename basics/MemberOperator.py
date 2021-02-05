@@ -1,4 +1,4 @@
-# Memeber Operator : in, not in
+# Member Operator : in, not in
 
 '''
 Bulk data storage objects are: key/index
