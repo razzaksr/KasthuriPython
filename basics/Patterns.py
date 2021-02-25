@@ -28,6 +28,13 @@ for row in range(1,6):
     print()
 '''
 
+
+#Left Lower floyd
+for row in range(5,-1,-1):
+    for col in range(1,row+1):
+        print("@",end="")
+    print()
+
 '''
 Right upper floyd
     @
@@ -44,6 +51,14 @@ for row in range(1,6):
         print("@",end="")
     print()
 '''
+
+#Right lower floyd
+for row in range(5,-1,-1):
+    for space in range(4,row-1,-1):
+        print(" ",end="")
+    for col in range(1,row+1):
+        print("@",end="")
+    print()
 
 '''
 #Dynamic right upper floyd
@@ -89,7 +104,7 @@ for row in range(1,5):
     print()
     limit+=2
 '''
-
+'''
 #dynamic pyramid
 row=int(input("Tell us no of rows: "))
 limit=1
@@ -100,4 +115,4 @@ for line in range(1,row+1):
     for col in range(1,limit+1):
         print("@",end="")
     print()
-    limit+=2
+    limit+=2'''
