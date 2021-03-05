@@ -1,5 +1,7 @@
 # array creation
 #creation syntax: object=array('type',[])
+
+# i,f,s,d
 '''
 import array
 obj=array.array('i',[])
