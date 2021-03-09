@@ -49,6 +49,7 @@ save.reverse()
 
 #listing
 '''
+O(n)>>O(10)
 for index in range(len(save)):
     print(save[index])
 '''

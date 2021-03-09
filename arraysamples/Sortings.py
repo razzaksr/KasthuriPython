@@ -7,10 +7,10 @@ kItems=[12300,8900,100,320,450,260,1200]
 save.fromlist(kItems)
 save.extend([1.2,8.9])
 
-print(save)
+print(save)# O(1)
 
 '''
-#selection sort
+#selection sort: O(n2)  
 for select in range(len(save)):
     for com in range(select+1,len(save)):
         if save[select]>save[com]:
@@ -21,7 +21,7 @@ for select in range(len(save)):
 
 
 '''
-#bubble sort
+#bubble sort:O(n2)
 third=0.0
 for steps in range(len(save)-1):
     for bub in range(len(save)-steps-1):
@@ -31,16 +31,17 @@ for steps in range(len(save)-1):
             save[bub+1]=third
 '''
 
-
-#insertion sort
-for select in range(1,len(save)):
-    com=select-1
-    while com > 0 :
-        #if save[com]>save[com-1]:
-            save[com]*=save[com-1]
-            save[com-1]=save[com]/save[com-1]
-            save[com]/=save[com-1]
-
+#insertion sort:O(n2)
+for each in range(1,len(save)):
+    select=save[each]
+    com=each-1
+    while com>=0 and select<save[com]:
+        save[com+1]=save[com]
+        com-=1
+    save[com+1]=select
 
 
-print(save)
+
+#print(save)
+for data in save:
+    print(data)
