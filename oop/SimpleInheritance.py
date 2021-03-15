@@ -30,8 +30,13 @@ class Youtube(Gmail):
     def upload(self,name="",duration=0.0):
         self.__videos.append(name)
         print(name,"video with duration of",duration,"uploaded in your",self.getUser())
+    def viewLibrary(self):
+        print(self.getUser(),"has following videos in his/her playlist")
+        for x in self.__videos:print(x)
 
 
-you1=Youtube(['shinchan','jackichan'],"razzaksr","12345678")
+'''you1=Youtube(['shinchan','jackichan'],"razzaksr","12345678")
 
 you1.upload('GST',0.30)
+
+you1.viewLibrary()'''
