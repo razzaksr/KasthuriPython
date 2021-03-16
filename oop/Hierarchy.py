@@ -24,3 +24,4 @@ you1.viewLibrary()
 fp1=Flipkart('kasthoori','kas',"Kasthuri",['kid cloth','shoe'],['nokia 6.1plus','realme 5s'])
 fp1+'Dell Vostro 1014'
 fp1|'kid cloths'
+

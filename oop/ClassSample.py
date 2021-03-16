@@ -7,7 +7,7 @@ class Account:
     def enquiry(self):
         print(self.accountNo,self.accountBal)
 
-
+'''
 ac1=Account()
 
 ac1.accountNo=8765445634
@@ -36,4 +36,4 @@ print(getattr(ac1,"accountBal"))
 kasthoori.ifsc="AB0001289"
 
 print(kasthoori.ifsc)
-print(ac1.ifsc)
+print(ac1.ifsc)'''
