@@ -95,6 +95,7 @@ class Rainbow:
                 #return
         else:print(other[1],"not match in available bikes")
 
+    #deletion based on manufactured year
     def __ne__(self, other):#obj!=year
         delPos=[]
         #collecting deletable positions
@@ -109,6 +110,36 @@ class Rainbow:
             print(self.__stock[x].getModel(), "gonna stopped to sale")
             self.__stock.pop(x)
 
+    # sorting ascending through  bubble by any attribute based
+    def __xor__(self, other):# obj^'sorting based on'# obj^'milage'
+        tmp=Bike()
+        for times in range(len(self.__stock)-1):
+            for bub in range(len(self.__stock)-times-1):
+                if other == 'milage':
+                    if self.__stock[bub].getMilage()>self.__stock[bub+1].getMilage():
+                        tmp = self.__stock[bub]
+                        self.__stock[bub] = self.__stock[bub + 1]
+                        self.__stock[bub + 1] = tmp
+                elif other == 'model':
+                    if self.__stock[bub].getModel()>self.__stock[bub+1].getModel():
+                        tmp = self.__stock[bub]
+                        self.__stock[bub] = self.__stock[bub + 1]
+                        self.__stock[bub + 1] = tmp
+                elif other == 'quantity':
+                    if self.__stock[bub].getQty()>self.__stock[bub+1].getQty():
+                        tmp = self.__stock[bub]
+                        self.__stock[bub] = self.__stock[bub + 1]
+                        self.__stock[bub + 1] = tmp
+                elif other == 'year':
+                    if self.__stock[bub].getYear()>self.__stock[bub+1].getYear():
+                        tmp = self.__stock[bub]
+                        self.__stock[bub] = self.__stock[bub + 1]
+                        self.__stock[bub + 1] = tmp
+                elif other == 'cost':
+                    if self.__stock[bub].getOnRoadPrice()>self.__stock[bub+1].getOnRoadPrice():
+                        tmp = self.__stock[bub]
+                        self.__stock[bub] = self.__stock[bub + 1]
+                        self.__stock[bub + 1] = tmp
 
 
 # verify til stock create and list
@@ -157,6 +188,10 @@ print(r)
 #r<=10
 
 # deletion based on year
-r!=2016
+#r!=2016
+
+print(r)
+
+r^'model'
 
 print(r)
