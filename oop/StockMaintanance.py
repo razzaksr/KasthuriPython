@@ -1,6 +1,9 @@
 # Showroom Management
 
 # entity/business/model/ encapsulated class
+from errors.CustomError import KasthuriError
+
+
 class Bike:
     def __init__(self,mod="",cc=0,yr=0,on=0.0,mil=0,q=0):
         self.__model=mod
@@ -46,26 +49,36 @@ class Rainbow:
 
     #read operations: obj<<'milage', obj<<'price', obj<<'model'
     def __lshift__(self, other):
-        if other == 'milage':
-            mil=int(input("Tell us desired milage: "))
-            for x in self.__stock:
-                if x.getMilage() >= mil:print(str(x))
-        elif other == 'cost':
-            price=int(input("Tell us desired cost: "))
-            for x in self.__stock:
-                if x.getOnRoadPrice() <= price:print(str(x))
-        elif other == 'model':
-            mod=input("Tell us desired model: ")
-            for x in self.__stock:
-                if x.getModel() == mod:print(str(x))
-        elif other=='pos':
-            pos=int(input("Tell us index: "))
-            if pos<len(other):print(self.__stock[pos])
-            else:print("Invalid position to read")
-        elif other in self.__stock:
-            print(self.__stock.index(other))
-        else:
-            print("Unknown data")
+        try:
+            if other == 'milage':
+                mil = int(input("Tell us desired milage: "))
+                for x in self.__stock:
+                    if x.getMilage() >= mil: print(str(x))
+            elif other == 'cost':
+                price = int(input("Tell us desired cost: "))
+                for x in self.__stock:
+                    if x.getOnRoadPrice() <= price: print(str(x))
+            elif other == 'model':
+                mod = input("Tell us desired model: ")
+                for x in self.__stock:
+                    if x.getModel() == mod:
+                        print(str(x))
+                        return
+            elif other == 'pos':
+                pos = int(input("Tell us index: "))
+                if pos < len(other):
+                    print(self.__stock[pos])
+                else:
+                    print("Invalid position to read")
+            elif other in self.__stock:
+                print(self.__stock.index(other))
+            else:
+                raise KasthuriError
+        except KasthuriError as ke:
+            print(ke)
+            constrain=input("Enter the constrain once again: ")
+            self<<constrain
+
 
     #update stock item by selling bike
     def __sub__(self, other):# obj-['Platina','mohamed']
@@ -156,18 +169,18 @@ print(r)
 #to check read
 b3=Bike("Vikrant",150,2018,87600.34,45,10)
 b4=Bike("Platina",100,2021,73000.34,70,50)
-r+b3
+#r+b3
 r+b4
 
 #reading
-'''
-r<<'milage'
-r<<'cost'
-r<<'model'
-r<<'cc'
-r<<'pos'
+
+#r<<'milage'
+#r<<'cost'
+#r<<'model'
+#r<<'cc'
+#r<<'pos'
 r<<b3
-'''
+
 
 #checking selling process
 '''
@@ -178,7 +191,7 @@ r-['Platina','Ibrahim']
 r-['Vikrant','Sheik']
 '''
 
-print(r)
+#print(r)
 
 # update price by offer
 #r==[7,80000]
@@ -190,8 +203,8 @@ print(r)
 # deletion based on year
 #r!=2016
 
-print(r)
+#print(r)
 
-r^'model'
+#r^'model'
 
-print(r)
+#print(r)
